@@ -10,7 +10,7 @@ let spec =
     inherit version;
     src =
       nixpkgs.fetchgit {
-        inherit "git://git.haskell.org/ghc.git";
+        url = "git://git.haskell.org/ghc.git";
         inherit rev;
         inherit sha256;
       };
