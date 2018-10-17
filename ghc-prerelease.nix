@@ -9,9 +9,8 @@ let spec =
   {
     inherit version;
     src =
-      nixpkgs.fetchFromGitHub {
-        owner = "ghc"; 
-        repo = "ghc";
+      nixpkgs.fetchgit {
+        inherit "git://git.haskell.org/ghc.git";
         inherit rev;
         inherit sha256;
       };
