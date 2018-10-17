@@ -1,19 +1,25 @@
 # Specify the precise commit of GHC that we are going to use by default
-nixpkgs:
+{ version
+, rev
+, sha256
+, nixpkgs
+}:
+
 let spec =
   {
-    version = "8.6.1.20180716";
+    inherit version;
     src =
-      nixpkgs.fetchgit {
-        url = "git://git.haskell.org/ghc.git";
-        rev = "ghc-8.6.1-alpha2";
-        sha256 = "03y824yfy1xh2cznq5q75sql8pb0lxyw9ry82jgms9jampky98x6";
+      nixpkgs.fetchFromGitHub {
+        url = "https://github.com/ghc/ghc";
+        inherit rev;
+        inherit sha256;
       };
   };
+
 in
 
 (nixpkgs.haskell.compiler.ghcHEAD.override
     { version = spec.version
-    ; bootPkgs = nixpkgs.haskell.packages.ghc822; }).overrideAttrs(oldAttrs:
+    ; bootPkgs = nixpkgs.haskell.packages.ghc843; }).overrideAttrs(oldAttrs:
     { src = spec.src; })
 

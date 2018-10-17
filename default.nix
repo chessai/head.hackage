@@ -28,7 +28,12 @@ let
     all-cabal-hashes = self.fetchurl (import ./all-cabal-hashes.nix);
 
     # Should this be self?
-    ghcHEAD = ghc super;
+    ghcHEAD = ghc {
+      version = "8.6.1.20181015";
+      rev = "f7b1ee966244b6ec5df528e3c21eefd8286412b7";
+      sha256 = "0q5g7a7x640pv79hlq7m747jabpgmspqb7avd58hj3izikxgb0jn";
+      nixpkgs = super;
+    };
 
     haskellPackages =
       let patchesOverrides = self.callPackage patches {};
