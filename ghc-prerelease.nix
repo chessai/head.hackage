@@ -10,7 +10,8 @@ let spec =
     inherit version;
     src =
       nixpkgs.fetchFromGitHub {
-        url = "https://github.com/ghc/ghc";
+        owner = "ghc"; 
+        repo = "ghc";
         inherit rev;
         inherit sha256;
       };
