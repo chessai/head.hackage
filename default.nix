@@ -31,7 +31,7 @@ let
     ghcHEAD = ghc {
       version = "8.6.1.20181015";
       rev = "f7b1ee966244b6ec5df528e3c21eefd8286412b7";
-      sha256 = "0q5g7a7x640pv79hlq7m747jabpgmspqb7avd58hj3izikxgb0jn";
+      sha256 = "0d336ry0j2lm45fhr5ngyf4x4w8mk6zkc36nlpajkzyh7x8ima79";
       nixpkgs = super;
     };
 
